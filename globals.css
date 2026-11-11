@@ -1,0 +1,44 @@
+:root{--bg:#070a14;--surface:#0f1424;--line:#25305a;--text:#e8ecff;--muted:#98a2cf;--a:#6ee7ff;--b:#a78bfa;color-scheme:dark}
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body),system-ui,sans-serif;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,nav,footer{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 6vw}
+.logo{font:700 .95rem var(--display);color:var(--text)!important;text-decoration:none;margin:0!important}
+nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:.95rem}
+nav a:hover{color:var(--a)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+.hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;max-width:880px}
+h1{font:700 clamp(2.2rem,7.5vw,5rem)/1.05 var(--display);margin:0 0 20px;letter-spacing:-.02em;background:linear-gradient(100deg,var(--text) 40%,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1.small{font-size:clamp(1.8rem,5vw,3rem)}
+.hero h1,.hero p,.hero div{animation:rise .8s both}.hero p{animation-delay:.15s}.hero div{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.hero p{max-width:34em;color:var(--muted);font-size:1.15rem;margin:0 0 30px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;background:var(--a);color:#04101a;font-weight:500;text-decoration:none;margin-right:10px;border:0;font-size:1rem;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+nav .btn.mini{padding:9px 18px;font-size:.9rem;color:#04101a;margin-left:20px}
+nav .btn.mini:hover{filter:brightness(1.1)}
+section{padding:70px 6vw;max-width:1100px}
+h2{font:700 clamp(1.5rem,4vw,2.3rem)/1.15 var(--display);margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{display:block;background:rgba(15,20,36,.82);border:1px solid var(--line);border-radius:18px;padding:22px;backdrop-filter:blur(8px);color:inherit;text-decoration:none;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--b);transform:translateY(-3px)}
+.card h3{font:500 1.1rem var(--display);margin:8px 0}.card p{color:var(--muted);margin:8px 0 0}
+.tag{font-size:.85rem;color:var(--a)}
+.back{display:inline-block;color:var(--muted);margin-bottom:24px}
+.lessons{padding-left:20px;margin:0 0 32px}.lessons li{margin:8px 0}
+.profile{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.avatar{width:120px;height:120px;border-radius:50%;background:conic-gradient(from 200deg,var(--a),var(--b),var(--a));display:grid;place-items:center;font:700 2rem var(--display);color:#06101c}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:16px}.stats div{font-size:.9rem;color:var(--muted)}
+.stats strong{display:block;font:700 1.5rem var(--display);color:var(--text)}
+form{display:grid;gap:12px;max-width:460px}
+input,textarea{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--b);border-color:transparent}
+#msg{color:var(--a);min-height:1.5em;margin:0}
+footer{padding:40px 6vw 90px;color:var(--muted);font-size:.9rem}
+.wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;background:#25d366;color:#05250f;font-weight:500;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.35)}
+.wa svg{width:24px;height:24px;fill:none;stroke:#05250f;stroke-width:1.8;stroke-linejoin:round}
+@media(max-width:560px){.profile{grid-template-columns:1fr}.wa span{display:none}.wa{padding:15px}nav a:not(.btn):not(.logo){display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero *{animation:none!important}}
